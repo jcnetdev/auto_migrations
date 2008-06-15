@@ -134,7 +134,8 @@ module AutoMigrations
     end
     
     def update_schema_version(version)
-      ActiveRecord::Base.connection.update("UPDATE #{ActiveRecord::Migrator.schema_info_table_name} SET version = #{version}")
+      schema_info_table_name = ActiveRecord::Migrator.schema_info_table_name rescue ActiveRecord::Migrator.schema_migrations_table_name
+      ActiveRecord::Base.connection.update("UPDATE #{schema_info_table_name} SET version = #{version}")
     end
   
   end
