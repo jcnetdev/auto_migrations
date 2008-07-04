@@ -1,2 +1,1 @@
-require 'auto_migrations'
-ActiveRecord::Migration.send :include, AutoMigrations
+require File.dirname(__FILE__) + "/rails/init"
