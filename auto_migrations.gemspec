@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
              "init.rb",
              "lib/auto_migrations.rb",
              "rails/init.rb",
-             "tasks",
              "tasks/auto_migrations_tasks.rake"]
   
   s.test_files = ["test/auto_migrations_test.rb"]
