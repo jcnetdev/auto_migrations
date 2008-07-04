@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.email = 'pjhyett@gmail.com'
   s.homepage = 'http://github.com/pjhyett/auto_migrations'
   
-  s.has_rdoc = false
-  # s.rdoc_options = ["--main", "README"]
-  #s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
+  s.has_rdoc = true
+  s.rdoc_options = ["--main", "README"]
+  s.extra_rdoc_files = ["README"]
 
   s.add_dependency 'rails', ['>= 2.1']
   
