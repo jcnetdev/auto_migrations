@@ -39,7 +39,8 @@ module AutoMigrations
     class << base
       cattr_accessor :tables_in_schema, :indexes_in_schema
       self.tables_in_schema, self.indexes_in_schema = [], []
-      alias_method_chain :method_missing, :auto_migration
+
+      alias_method_chain :method_missing, :auto_migration unless instance_methods.include?('method_missing_without_auto_migration') 
     end
   end
 

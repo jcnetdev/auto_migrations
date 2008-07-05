@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'auto_migrations'
-  s.version = '1.1.20080704'
+  s.version = '1.2.20080704'
   s.date = '2008-07-04'
   
   s.summary = "Allows migrations to be run automatically based on updating the schema.rb"
