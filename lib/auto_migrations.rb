@@ -39,8 +39,7 @@ module AutoMigrations
     class << base
       cattr_accessor :tables_in_schema, :indexes_in_schema
       self.tables_in_schema, self.indexes_in_schema = [], []
-
-      alias_method_chain :method_missing, :auto_migration unless instance_methods.include?('method_missing_without_auto_migration') 
+      alias_method_chain :method_missing, :auto_migration
     end
   end
 
@@ -135,8 +134,7 @@ module AutoMigrations
     end
     
     def update_schema_version(version)
-      schema_info_table_name = ActiveRecord::Migrator.schema_info_table_name rescue ActiveRecord::Migrator.schema_migrations_table_name
-      ActiveRecord::Base.connection.update("UPDATE #{schema_info_table_name} SET version = #{version}")
+      ActiveRecord::Base.connection.update("INSERT INTO schema_migrations VALUES ('#{version}')")
     end
   
   end
