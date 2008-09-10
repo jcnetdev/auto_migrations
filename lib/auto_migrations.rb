@@ -5,7 +5,7 @@ module AutoMigrations
     class << ActiveRecord::Schema
       alias :old_define :define
       attr_accessor :version
-      def define(info={}, &block) @version = Time.now.utc.strftime("%Y%m%d%H%M%S"); instance_eval(&block) end
+      def define(info={}, &block) @version=info[:version]; instance_eval(&block) end
     end
   
     load(File.join(RAILS_ROOT, 'db', 'schema.rb'))
