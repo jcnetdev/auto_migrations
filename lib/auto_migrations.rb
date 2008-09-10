@@ -135,11 +135,6 @@ module AutoMigrations
     
     def update_schema_version(version)
       ActiveRecord::Base.connection.update("INSERT INTO schema_migrations VALUES ('#{version}')")
-
-      schema_file = File.join(RAILS_ROOT, "db", "schema.rb")
-      schema = File.read(schema_file)
-      schema.sub!(/:version => \d+/, ":version => #{version}")
-      File.open(schema_file, "w") { |f| f << schema }
     end
   
   end
